@@ -69,7 +69,7 @@ export default class GetImageForm extends Component{
       </select>
       <label htmlFor="sol">Martian Sol: 1000-2000</label>
       <input type="number" onChange={this.handleSol} max="2000" min="1000" value={this.state.value}/>
-      <GetImageButton sol={this.state.sol}, rovers = {this.state.rovers}, camera = {this.state.camera} />
+      <GetImageButton {...this.state} />
       </div>
     );
 
