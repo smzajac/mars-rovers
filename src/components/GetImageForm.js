@@ -26,14 +26,8 @@ export default class GetImageForm extends Component{
     this.setState({camera: e.target.value})
   };
 
-
-  componentDidMount() {
-
-
-
-
-    console.log('did mount');
-
+  fetchRoverImage = () => {
+    console.log("clicked");
     fetch(API_KEY)
     .then(results => results.json())
     .then(responseData => {
@@ -47,6 +41,10 @@ export default class GetImageForm extends Component{
     });
   }
 
+
+  componentDidMount() {
+    this.fetchRoverImage();
+  }
 
 
   render(){
@@ -69,7 +67,7 @@ export default class GetImageForm extends Component{
       </select>
       <label htmlFor="sol">Martian Sol: 1000-2000</label>
       <input type="number" onChange={this.handleSol} max="2000" min="1000" value={this.state.value}/>
-      <GetImageButton {...this.state} />
+      <GetImageButton {...this.state} onClick={this.fetchRoverImage} />
       </div>
     );
 
